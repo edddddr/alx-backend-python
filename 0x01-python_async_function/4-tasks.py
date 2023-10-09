@@ -7,7 +7,7 @@ from typing import List
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
        Args:
             max_delay: max sleep
@@ -15,7 +15,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
        Return:
            float time rand
     """
-    vals: List = []
+    vals: List[asyncio.Task] = []
     rand: List[float] = []
     for _ in range(n):
         vals.append(wait_random(max_delay))
